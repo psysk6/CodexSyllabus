@@ -83,10 +83,29 @@ True
 >>> a >= b
 False
 ~~~~
+## 2.2a Combining conditions
+We can use multiple conditionals at once using AND and OR.
 
-Now that we know how to do iteration we can start making loops.
+* AND: if both conditions are true overall the statement is true.
+* OR: if one or both of the conditions are true it is true over all.
 
-### 2.3- While Loops
+~~~~
+>>> a and a or b
+True
+>>> a = 100
+>>> a > 50 and a != 60
+True
+>>> a > 50 and a != 100
+False
+a > 100 or a != 101
+True
+a == 99 or (a/2) >= 50
+True
+~~~~
+
+Now that we know how to test conditions we can start making loops.
+
+## 2.3- While Loops
 A while loop literally means keep looping while a certain criteria has not been reached. for example:
 
 ~~~~
@@ -103,10 +122,125 @@ while(a < 10):
     #So is this
 #but not this 
 ~~~~
-
+<!--teachers at this point might want to show students how to refator their code.-->
 Try printing something with this loop...what happens?
 ~~~~
 while(a < 10):
     print("something")
+~~~~
+You'll notice it loops infinitely.
+
+you can press ctrl+c to stop it.
+
+It loops infinitely because we don't modify **a** therefore our exit criteria (a < 10 is never true so we don't exit the loop.)
+
+to fix this in our loop we have to add 1 to a every iteration.
+
+Now try it with the line to increment a:
+~~~~
+while(a < 10):
+    print("something")
+    #now we are incrementing a:
+    a+=1
+~~~~
+
+it should now execute 10 times and then exit successfully!
+~~~
+>>> a = 0
+>>> while(a < 10):
+	print("something")
+	a+=1
+
+something
+something
+something
+something
+something
+something
+something
+something
+something
+something
+>>> 
+~~~~
+
+## 2.4- For Loops
+
+For loops are slightly different from while loops. 
+
+A for loop is structured as follows
+
+
+for SomeVariable in range(x,y,z):
+
+* **SomeVariable** is the number we start at conventionally this is usually called i or j though it doesn't have to be.
+
+* **x** is the counter for the loop i.e. what were starting from
+
+* **y** is what we're trying to get to
+
+* **z** is the size of the step we take
+
+for example:
+~~~~
+#i is 0
+#counting to 5
+#in steps of 1
+for i in range(0,5,1):
+	print("iteration number:",i)
+
+iteration number: 0
+iteration number: 1
+iteration number: 2
+iteration number: 3
+iteration number: 4
+>>> 
+~~~~
+
+In python it is generally acceptable to just pass one variable in, this will  be the number we are trying to get to i.e. the following code produces the same output as above.
+
+~~~~
+for i in range(5):
+	print("iteration number:",i)
+iteration number: 0
+iteration number: 1
+iteration number: 2
+iteration number: 3
+iteration number: 4
+
+~~~~
+
+## Applying this to our game: iteratively printing the board.
+
+Last time we learned how to print the board using format print statements.
+
+It gives us the output we and it works fine but there's a better way we can do this.
+
+~~~~
+#Headings of each row
+headingRow = "  1 2 3 4 "
+#array of numbers we are going to print out in the grid formation.
+board = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7]
+print(headingRow)
+#row A
+row = ("A {0} {1} {2} {3}").format(board[0],board[1],board[2],board[3])
+print(row)
+
+#row B
+row = ("B {0} {1} {2} {3}").format(board[4],board[5],board[6],board[7])
+print(row)
+
+#row C
+row = ("C {0} {1} {2} {3}").format(board[8],board[9],board[10],board[11])
+print(row)
+
+#row D
+row = ("D {0} {1} {2} {3}").format(board[12],board[13],board[14],board[15])
+print(row)
+~~~~
+
+Now we can print each of our rows iteratively.
+~~~~
+
 
 ~~~~
