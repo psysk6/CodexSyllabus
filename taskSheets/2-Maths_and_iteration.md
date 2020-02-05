@@ -216,6 +216,9 @@ Last time we learned how to print the board using format print statements.
 
 It gives us the output we and it works fine but there's a better way we can do this.
 
+
+
+<!--this needs updating-->
 ~~~~
 #Headings of each row
 headingRow = "  1 2 3 4 "
@@ -239,8 +242,65 @@ row = ("D {0} {1} {2} {3}").format(board[12],board[13],board[14],board[15])
 print(row)
 ~~~~
 
-Now we can print each of our rows iteratively.
-~~~~
+ Now we can think about how to print them iteratively.
 
 
-~~~~
+
+We will start with the same stuff as we had before
+* The headings row *headingRow*
+* the of letters which are displayed at the beginning of each row.
+* the board itself
+~~~
+#Headings of each row
+headingRow = "  1 2 3 4"
+#array of letters we are going to print out in the grid formation.
+rows = ["A","B","C","D"]
+board = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7]
+~~~
+As with the first section we can print the heading row.
+~~~
+print(headingRow)
+~~~
+However instead of simply printing 4 times we want a while loop.
+
+~~~
+while(condition(s)):
+    row = ("{0} {1} {2} {3} {4}").format(rows[something],board[something],board[something],board[something]
+    print(row)
+~~~
+What would our conditions be? considering that we want to print out all of the board row letters and all of the characters in the board?
+
+Here's a hint below I've created 2 variables which are set to 0:
+* characterNumber
+* rowNumber 
+
+A side note the function len() is very useful and can be used to find the length of an array for example:
+~~~
+>>> a = [1,2,3]
+>>> len(a)
+3
+~~~
+with this in mind try to complete the code below:
+~~~
+#Headings of each row
+headingRow = "  1 2 3 4"
+#array of numbers we are going to print out in the grid formation.
+rows = ["A","B","C","D"]
+board = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7]
+print(headingRow)
+
+characterNumber = 0 #iterator for characters on the board
+rowNumber = 0 #iterator for the numebr of rows 
+while(*something* < len(*something*) and something < len(something)):
+    row = ("{0} {1} {2} {3} {4}").format(rows[something],board[something],board[something+1],board[something+2],board[something+3])
+    print(row)
+    #need to know what to increase rowNumber and characterNumber by considering we print out 1 from rows and 4 board
+    c += *something*
+    j += *something*
+~~~
+
+Once finished the code should output the same as before. But now we are using iteration which makes for a more elegant piece of code.
+
+ Throughout our project we will use iteration to perform a variety of different tasks.
+
+ Next time we will be learning all about functions and how they can be useful in reusing code and making code easier to read as well as beginning to see how our whole project is going to fit together.
